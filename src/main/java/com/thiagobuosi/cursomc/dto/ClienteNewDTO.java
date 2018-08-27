@@ -4,144 +4,135 @@ import java.io.Serializable;
 
 public class ClienteNewDTO implements Serializable {
 
-	private static final long serialVersionUID = 1L;
-	
-	//Cliente
-	private Integer id;
-	private String nome;
-	private String email;
-	private String cpfOuCnpj;
-	private Integer tipo;
-	
-	//Endereço
-	private String logradouro;
-	private String numero;
-	private String complemento;
-	private String bairro;
-	private String cep;
-	
-	//Telefone
-	private String telefone1;
-	private String telefone2;
-	private String telefone3;
-		
-	//Cidade do endereço
-	private Integer cidadeId;
-	
-	public ClienteNewDTO() {
-		
-	}
+    private static final long serialVersionUID = 1L;
 
-	public Integer getId() {
-		return id;
-	}
+    //Cliente
+    private String nome;
+    private String email;
+    private String cpfOuCnpj;
+    private Integer tipo;
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    //Endereço
+    private String logradouro;
+    private String numero;
+    private String complemento;
+    private String bairro;
+    private String cep;
 
-	public String getNome() {
-		return nome;
-	}
+    //Telefone
+    private String telefone1;
+    private String telefone2;
+    private String telefone3;
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    //Cidade do endereço
+    private Integer cidadeId;
 
-	public String getEmail() {
-		return email;
-	}
+    public ClienteNewDTO() {
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    }
 
-	public String getCpfOuCnpj() {
-		return cpfOuCnpj;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public void setCpfOuCnpj(String cpfOuCnpj) {
-		this.cpfOuCnpj = cpfOuCnpj;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public Integer getTipo() {
-		return tipo;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public void setTipo(Integer tipo) {
-		this.tipo = tipo;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public String getLogradouro() {
-		return logradouro;
-	}
+    public String getCpfOuCnpj() {
+        return cpfOuCnpj;
+    }
 
-	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
-	}
+    public void setCpfOuCnpj(String cpfOuCnpj) {
+        this.cpfOuCnpj = cpfOuCnpj;
+    }
 
-	public String getNumero() {
-		return numero;
-	}
+    public Integer getTipo() {
+        return tipo;
+    }
 
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
+    public void setTipo(Integer tipo) {
+        this.tipo = tipo;
+    }
 
-	public String getComplemento() {
-		return complemento;
-	}
+    public String getLogradouro() {
+        return logradouro;
+    }
 
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
-	}
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
+    }
 
-	public String getBairro() {
-		return bairro;
-	}
+    public String getNumero() {
+        return numero;
+    }
 
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
 
-	public String getCep() {
-		return cep;
-	}
+    public String getComplemento() {
+        return complemento;
+    }
 
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
 
-	public String getTelefone1() {
-		return telefone1;
-	}
+    public String getBairro() {
+        return bairro;
+    }
 
-	public void setTelefone1(String telefone1) {
-		this.telefone1 = telefone1;
-	}
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
 
-	public String getTelefone2() {
-		return telefone2;
-	}
+    public String getCep() {
+        return cep;
+    }
 
-	public void setTelefone2(String telefone2) {
-		this.telefone2 = telefone2;
-	}
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
 
-	public String getTelefone3() {
-		return telefone3;
-	}
+    public String getTelefone1() {
+        return telefone1;
+    }
 
-	public void setTelefone3(String telefone3) {
-		this.telefone3 = telefone3;
-	}
+    public void setTelefone1(String telefone1) {
+        this.telefone1 = telefone1;
+    }
 
-	public Integer getCidadeId() {
-		return cidadeId;
-	}
+    public String getTelefone2() {
+        return telefone2;
+    }
 
-	public void setCidadeId(Integer cidadeId) {
-		this.cidadeId = cidadeId;
-	}
-	
+    public void setTelefone2(String telefone2) {
+        this.telefone2 = telefone2;
+    }
+
+    public String getTelefone3() {
+        return telefone3;
+    }
+
+    public void setTelefone3(String telefone3) {
+        this.telefone3 = telefone3;
+    }
+
+    public Integer getCidadeId() {
+        return cidadeId;
+    }
+
+    public void setCidadeId(Integer cidadeId) {
+        this.cidadeId = cidadeId;
+    }
+
 }
