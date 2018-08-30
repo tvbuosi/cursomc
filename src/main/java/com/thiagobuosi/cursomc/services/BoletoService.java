@@ -3,8 +3,11 @@ package com.thiagobuosi.cursomc.services;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.springframework.stereotype.Service;
+
 import com.thiagobuosi.cursomc.domain.PagamentoComBoleto;
 
+@Service
 public class BoletoService {
 
 	public void preencherPagamentoComBoleto(PagamentoComBoleto pagto, Date instanteDoPedido) {
