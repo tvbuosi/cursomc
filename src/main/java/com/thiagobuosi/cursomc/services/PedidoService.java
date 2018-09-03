@@ -11,6 +11,7 @@ import com.thiagobuosi.cursomc.domain.ItemPedido;
 import com.thiagobuosi.cursomc.domain.PagamentoComBoleto;
 import com.thiagobuosi.cursomc.domain.Pedido;
 import com.thiagobuosi.cursomc.domain.enums.EstadoPagamento;
+import com.thiagobuosi.cursomc.repositories.ClienteRepository;
 import com.thiagobuosi.cursomc.repositories.ItemPedidoRepository;
 import com.thiagobuosi.cursomc.repositories.PagamentoRepository;
 import com.thiagobuosi.cursomc.repositories.PedidoRepository;
@@ -34,6 +35,9 @@ public class PedidoService {
 	@Autowired
 	private ItemPedidoRepository itemPedidoRepository;
 	
+	@Autowired 
+	private ClienteService clienteService;
+	
 	
 	
 	public Pedido find(Integer id) {
@@ -50,6 +54,7 @@ public class PedidoService {
 		
 		obj.setId(null);
 		obj.setInstante(new Date());
+		obj.setCliente(clienteService.find(obj.getCliente().getId()));
 		obj.getPagamento().setEstado(EstadoPagamento.PENDENTE);
 		obj.getPagamento().setPedido(obj);
 		
@@ -65,11 +70,13 @@ public class PedidoService {
 		
 		for(ItemPedido ip : obj.getItens()) {
 			ip.setDesconto(0.0);
+			ip.setProduto(produtoService.find(ip.getProduto().getId()));
 			ip.setPreco(produtoService.find(ip.getProduto().getId()).getPreco());
 			ip.setPedido(obj);
 		}
 		
 		itemPedidoRepository.saveAll(obj.getItens());
+		System.out.println(obj);
 		return obj;
 	}
 	
