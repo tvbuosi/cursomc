@@ -14,14 +14,15 @@ import org.springframework.web.servlet.HandlerMapping;
 import com.thiagobuosi.cursomc.domain.Cliente;
 import com.thiagobuosi.cursomc.dto.ClienteDTO;
 import com.thiagobuosi.cursomc.repositories.ClienteRepository;
-import com.thiagobuosi.cursomc.resources.exceptions.FieldMessage;
+import com.thiagobuosi.cursomc.resources.exception.FieldMessage;
 
 public class ClienteUpdateValidator implements ConstraintValidator<ClienteUpdate, ClienteDTO> {
-	
+
 	@Autowired
 	private HttpServletRequest request;
 	
-	@Autowired ClienteRepository repo;
+	@Autowired
+	private ClienteRepository repo;
 	
 	@Override
 	public void initialize(ClienteUpdate ann) {
@@ -35,12 +36,12 @@ public class ClienteUpdateValidator implements ConstraintValidator<ClienteUpdate
 		Integer uriId = Integer.parseInt(map.get("id"));
 		
 		List<FieldMessage> list = new ArrayList<>();
-	
-		Cliente aux = repo.findByEmail(objDto.getEmail());
-		if(aux != null && !aux.getId().equals(uriId)) {
-			list.add(new FieldMessage("email", "E-mail já cadastrado"));
-		}
 		
+		Cliente aux = repo.findByEmail(objDto.getEmail());
+		if (aux != null && !aux.getId().equals(uriId)) {
+			list.add(new FieldMessage("email", "Email já existente"));
+		}
+
 		for (FieldMessage e : list) {
 			context.disableDefaultConstraintViolation();
 			context.buildConstraintViolationWithTemplate(e.getMessage()).addPropertyNode(e.getFieldName())
@@ -49,3 +50,4 @@ public class ClienteUpdateValidator implements ConstraintValidator<ClienteUpdate
 		return list.isEmpty();
 	}
 }
+

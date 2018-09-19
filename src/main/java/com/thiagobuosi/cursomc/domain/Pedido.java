@@ -22,7 +22,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Pedido implements Serializable {
-
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -34,7 +33,7 @@ public class Pedido implements Serializable {
 	
 	@OneToOne(cascade=CascadeType.ALL, mappedBy="pedido")
 	private Pagamento pagamento;
-	
+
 	@ManyToOne
 	@JoinColumn(name="cliente_id")
 	private Cliente cliente;
@@ -47,7 +46,6 @@ public class Pedido implements Serializable {
 	private Set<ItemPedido> itens = new HashSet<>();
 	
 	public Pedido() {
-		
 	}
 
 	public Pedido(Integer id, Date instante, Cliente cliente, Endereco enderecoDeEntrega) {
@@ -60,11 +58,9 @@ public class Pedido implements Serializable {
 
 	public double getValorTotal() {
 		double soma = 0.0;
-		
-		for(ItemPedido ip : itens) {
+		for (ItemPedido ip : itens) {
 			soma = soma + ip.getSubTotal();
 		}
-		
 		return soma;
 	}
 	
@@ -115,7 +111,7 @@ public class Pedido implements Serializable {
 	public void setItens(Set<ItemPedido> itens) {
 		this.itens = itens;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -140,14 +136,12 @@ public class Pedido implements Serializable {
 			return false;
 		return true;
 	}
-
+	
 	@Override
 	public String toString() {
-		
 		NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyy hh:mm:ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		StringBuilder builder = new StringBuilder();
-		
 		builder.append("Pedido número: ");
 		builder.append(getId());
 		builder.append(", Instante: ");
@@ -157,17 +151,11 @@ public class Pedido implements Serializable {
 		builder.append(", Situação do pagamento: ");
 		builder.append(getPagamento().getEstado().getDescricao());
 		builder.append("\nDetalhes:\n");
-		
-		for(ItemPedido ip : getItens()) {
+		for (ItemPedido ip : getItens()) {
 			builder.append(ip.toString());
 		}
-		
 		builder.append("Valor total: ");
 		builder.append(nf.format(getValorTotal()));
-		
 		return builder.toString();
 	}
-	
-	
-	
 }

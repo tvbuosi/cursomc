@@ -11,9 +11,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class ItemPedido implements Serializable {
-
 	private static final long serialVersionUID = 1L;
-
+	
 	@JsonIgnore
 	@EmbeddedId
 	private ItemPedidoPK id = new ItemPedidoPK();
@@ -23,7 +22,6 @@ public class ItemPedido implements Serializable {
 	private Double preco;
 	
 	public ItemPedido() {
-		
 	}
 
 	public ItemPedido(Pedido pedido, Produto produto, Double desconto, Integer quantidade, Double preco) {
@@ -34,11 +32,11 @@ public class ItemPedido implements Serializable {
 		this.quantidade = quantidade;
 		this.preco = preco;
 	}
-	
+
 	public double getSubTotal() {
 		return (preco - desconto) * quantidade;
 	}
-
+	
 	@JsonIgnore
 	public Pedido getPedido() {
 		return id.getPedido();
@@ -88,10 +86,6 @@ public class ItemPedido implements Serializable {
 		this.preco = preco;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -116,13 +110,11 @@ public class ItemPedido implements Serializable {
 			return false;
 		return true;
 	}
-
+	
 	@Override
 	public String toString() {
-		
 		NumberFormat nf = NumberFormat.getCurrencyInstance(new Locale("pt", "BR"));
 		StringBuilder builder = new StringBuilder();
-		
 		builder.append(getProduto().getNome());
 		builder.append(", Qte: ");
 		builder.append(getQuantidade());
@@ -131,8 +123,6 @@ public class ItemPedido implements Serializable {
 		builder.append(", Subtotal: ");
 		builder.append(nf.format(getSubTotal()));
 		builder.append("\n");
-				
 		return builder.toString();
 	}
-	
 }

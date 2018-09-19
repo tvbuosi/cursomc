@@ -8,10 +8,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
+ 
 @Entity
 public class Cidade implements Serializable {
-
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -24,7 +23,6 @@ public class Cidade implements Serializable {
 	private Estado estado;
 	
 	public Cidade() {
-		
 	}
 
 	public Cidade(Integer id, String nome, Estado estado) {
@@ -58,10 +56,6 @@ public class Cidade implements Serializable {
 		this.estado = estado;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -86,5 +80,7 @@ public class Cidade implements Serializable {
 			return false;
 		return true;
 	}
+	
+	
 	
 }
