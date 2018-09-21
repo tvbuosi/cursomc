@@ -23,3 +23,9 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+
+### Properties ###
+\cursomc\src\main\application.properties
+\cursomc\src\main\application-dev.properties
+\cursomc\src\main\application-prod.properties
+\cursomc\src\main\application-test.properties
